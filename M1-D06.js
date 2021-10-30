@@ -189,10 +189,52 @@ console.log(onlyLetters1("something 34went shs 78"))
 /* EXERCISE 6
    Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
 */
+title("6")
 
+  const isThisAnEmail = function (input) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(input).toLowerCase());
+
+  }
+  console.log(isThisAnEmail("may.hdhfd@gmail.com"))
+  console.log(isThisAnEmail("may.hdhfd@gmailcom"))
 /* EXERCISE 7
    Write a function called whatDayIsIt that should return the current day of the week.
 */
+
+title("7")
+   const whatDayIsIt = function(){
+    const d = new Date();
+    let day = d.getDay();
+    let dayName
+    switch (day) {
+      case 1 : 
+      dayName = "Monday"
+      break
+      case 2: 
+      dayName = "Tuesday"
+      break
+      case 3: 
+      dayName = "Wednesday"
+      break
+      case 4: 
+      dayName = "Thursday"
+      break
+      case 5: 
+      dayName = "Friday"
+      break
+      case 6: 
+      dayName = "Saturday"
+      break
+      case 7: 
+      dayName = "Sunday"
+      break 
+
+    }
+    return dayName
+
+   }
+   console.log(whatDayIsIt())
 
 /* EXERCISE 8
     Write a function called rollTheDices which receives a number as a parameter.
@@ -203,6 +245,7 @@ console.log(onlyLetters1("something 34went shs 78"))
         sum: 10
         values: [3, 3, 4]
     }
+
 */
 
 /* EXERCISE 9
