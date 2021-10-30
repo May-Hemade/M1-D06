@@ -86,7 +86,7 @@ console.log(dice())
 */
 title("2")
 //const whoIsBigger = function (a, b) {
-  //if (a > b) {
+//if (a > b) {
 //     return a
 //   }
 //   return b
@@ -96,7 +96,7 @@ title("2")
 //console.log(whoIsBigger(7, 7))
 
 const whoIsBigger = function (a, b) {
-  return Math.max(a,b)
+  return Math.max(a, b)
 }
 console.log(whoIsBigger(67, 09))
 console.log(whoIsBigger(7, 09))
@@ -108,23 +108,83 @@ console.log(whoIsBigger(7, 7))
 */
 title("3")
 
-const splitMe = function(sentence){
+const splitMe = function (sentence) {
   return sentence.split(" ")
 }
 console.log(splitMe("hello baby"))
-
-
 
 /* EXERCISE 4
     Write a function called deleteOne which receives a string and a boolean as parameters.
     If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 */
 title("4")
+const deleteOne = function (word, b) {
+  if (b) {
+    return word.slice(1)
+  }
+  let wordArr = word.split("")
+  wordArr.pop()
+  let newWord = wordArr.join("")
+  return newWord
+}
+console.log(deleteOne("heyy", false))
+console.log(deleteOne("heyy", true))
 
 /* EXERCISE 5
    Write a function called onlyLetters which receives a string as a parameter and returns it removing all the digits.
    Ex.: onlyLetters("I have 4 dogs") => returns "I have  dogs"
 */
+title("5")
+const onlyLetters = function (input) {
+  let inputArr = input.split("")
+  let resultArr = []
+
+  for (let character of inputArr) {
+    if (
+      character !== "0" &&
+      character !== "1" &&
+      character !== "2" &&
+      character !== "3" &&
+      character !== "4" &&
+      character !== "5" &&
+      character !== "6" &&
+      character !== "7" &&
+      character !== "8" &&
+      character !== "9"
+    ) {
+      resultArr.push(character)
+    }
+  }
+  let sentence = resultArr.join("")
+  return sentence
+}
+console.log(onlyLetters("hey1 234love"))
+
+title("5 extra")
+const onlyLetters1 = function (input) {
+  let inputArr = input.split("")
+  let resultArr = []
+  for (let character of inputArr) {
+    switch (character) {
+      case "0":
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
+        break
+        default: 
+        resultArr.push(character)
+    }
+  } 
+  return resultArr.join("")
+}
+console.log(onlyLetters1("something 34went shs 78"))
+
 
 /* EXERCISE 6
    Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
