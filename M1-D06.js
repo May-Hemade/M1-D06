@@ -177,64 +177,61 @@ const onlyLetters1 = function (input) {
       case "8":
       case "9":
         break
-        default: 
+      default:
         resultArr.push(character)
     }
-  } 
+  }
   return resultArr.join("")
 }
 console.log(onlyLetters1("something 34went shs 78"))
-
 
 /* EXERCISE 6
    Write a function called isThisAnEmail which receives a string as a parameter and returns true if the string is a valid email address.
 */
 title("6")
 
-  const isThisAnEmail = function (input) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(input).toLowerCase());
-
-  }
-  console.log(isThisAnEmail("may.hdhfd@gmail.com"))
-  console.log(isThisAnEmail("may.hdhfd@gmailcom"))
+const isThisAnEmail = function (input) {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return re.test(String(input).toLowerCase())
+}
+console.log(isThisAnEmail("may.hdhfd@gmail.com"))
+console.log(isThisAnEmail("may.hdhfd@gmailcom"))
 /* EXERCISE 7
    Write a function called whatDayIsIt that should return the current day of the week.
 */
 
 title("7")
-   const whatDayIsIt = function(){
-    const d = new Date();
-    let day = d.getDay();
-    let dayName
-    switch (day) {
-      case 1 : 
+const whatDayIsIt = function () {
+  const d = new Date()
+  let day = d.getDay()
+  let dayName = ""
+  switch (day) {
+    case 1:
       dayName = "Monday"
       break
-      case 2: 
+    case 2:
       dayName = "Tuesday"
       break
-      case 3: 
+    case 3:
       dayName = "Wednesday"
       break
-      case 4: 
+    case 4:
       dayName = "Thursday"
       break
-      case 5: 
+    case 5:
       dayName = "Friday"
       break
-      case 6: 
+    case 6:
       dayName = "Saturday"
       break
-      case 7: 
+    case 0:
       dayName = "Sunday"
-      break 
-
-    }
-    return dayName
-
-   }
-   console.log(whatDayIsIt())
+      break
+  }
+  return dayName
+}
+console.log(whatDayIsIt())
 
 /* EXERCISE 8
     Write a function called rollTheDices which receives a number as a parameter.
@@ -245,16 +242,62 @@ title("7")
         sum: 10
         values: [3, 3, 4]
     }
+    */
+title("8")
 
-*/
+const rollTheDices = function (n) {
+  let diceArr = []
+  let sumDice = 0
+  for (let i = 0; i < n; i++) {
+    diceArr.push(dice())
+    sumDice += diceArr[i]
+  }
+
+  let rollDiceResult = {
+    sum: sumDice,
+    values: diceArr,
+  }
+  return rollDiceResult
+}
+
+console.log(rollTheDices(5))
 
 /* EXERCISE 9
    Write a function called howManyDays which receives a date as a parameter and returns the number of days passed since that date.
 */
+title("9")
 
+const howManyDays = function (date) {
+  let today = new Date()
+  let diffInMs = today.getTime() - date.getTime()
+  let days = diffInMs / (1000 * 3600 * 24)
+
+  return Math.round(days)
+}
+
+console.log(howManyDays(new Date("05/26/1993")))
 /* EXERCISE 10
    Write a function called isTodayMyBirthday which should return true if today's your birthday, false otherwise.
 */
+title("9")
+
+const isTodayMyBirthday = function (birthDate) {
+  let today = new Date()
+
+  let day = today.getDate()
+console.log(day)
+  let month = today.getMonth()
+console.log(month)
+  let day1 = birthDate.getDate()
+  console.log(day1)
+  let month1 = birthDate.getMonth()
+  console.log(month1)
+  if (day === day1 && month === month1) {
+    return true
+  }
+  return false
+}
+console.log(isTodayMyBirthday(new Date("10/31/1993")))
 
 // JS Arrays & Objects
 // NOTE: the movies array used in some exercises is defined at the end of this file
