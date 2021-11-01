@@ -603,6 +603,30 @@ halfTree(6)
    *** 
   *****
 */
+const starOdd = function (nSpaces, nStars) {
+  let stars = ""
+  
+  for (let i = 1; i <= nSpaces; i++) {
+    stars += " "
+
+  }
+  for (let i = 1; i <= nStars; i++) {
+    stars += "*"
+  }
+  console.log(stars)
+}
+
+const tree = function (n) {
+  for (let i = 1; i <= n; i++) {
+    let numberStars = 2*i-1
+    let numberSpaces = n - i
+   starOdd(numberSpaces,numberStars)
+
+  } 
+   
+  
+}
+tree(7)
 
 /* EXERCISE 23
   Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
