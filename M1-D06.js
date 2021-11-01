@@ -580,7 +580,21 @@ console.log(removeIndex(1))
   **
   ***
 */
+const star = function (n) {
+  let stars = ""
+  for (let i = 1; i <= n; i++) {
+    stars += "*"
+  }
+  console.log(stars)
+}
 
+const halfTree = function (n) {
+  for (let i = 1; i <= n; i++) {
+    star(i)
+  }
+}
+
+halfTree(6)
 /* EXERCISE 22 
   Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
   Example: 
